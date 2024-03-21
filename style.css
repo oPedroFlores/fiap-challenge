@@ -1,0 +1,49 @@
+body {
+  height: 120vh;
+  background: linear-gradient(to bottom, black 30%, white 30%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'poppins', sans-serif;
+}
+
+.mainDiv {
+  color: whitesmoke;
+  height: 700px;
+  width: 736px;
+}
+
+form {
+  color: black;
+  padding: 40px;
+  background-color: white;
+  height: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+form p {
+  border-bottom: 1px solid black;
+}
+
+input {
+  padding: 10px;
+  outline: none;
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #db1b1b;
+  padding: 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+textarea {
+  width: 608px;
+  height: 168px;
+}

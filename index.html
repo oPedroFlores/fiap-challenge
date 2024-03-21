@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>FullStack Challenge</title>
+</head>
+
+<body>
+
+  <div class="mainDiv"">
+    <h3>FULLSTACK CHALLENGE</h3>
+    <p>Desafio Aula Inaugural</p>
+    <form id=" myForm">
+    <p> Informações do Grupo </p>
+      <label for="name">Nome:</label>
+      <input type="text" id="name1" name="name" required>
+      <label for="name">Nome:</label>
+      <input type="text" id="name2" name="name" required>
+      <label for="name">Nome:</label>
+      <input type="text" id="name3" name="name" required>
+      <label for="name">Nome:</label>
+      <input type="text" id="name4" name="name" required>
+      <label for="name">Nome:</label>
+      <input type="text" id="name5" name="name" required>
+      <label for="name">História do Grupo:</label>
+      <textarea id="messageInput" placeholder="História do grupo"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+
+
+  <script>
+    function enviaRm() {
+      const name1 = document.getElementById('name1').value.trim();
+      const name2 = document.getElementById('name2').value.trim();
+      const name3 = document.getElementById('name3').value.trim();
+      const name4 = document.getElementById('name4').value.trim();
+      const name5 = document.getElementById('name5').value.trim();
+      const messageInput = document.getElementById('messageInput').value.trim();
+
+      // Convertendo os nomes em um array
+      const namesArray = [name1, name2, name3, name4, name5];
+
+      const requestData = {
+        names: namesArray,
+        message: messageInput
+      };// Realizando a requisição POST usando a Fetch API
+      fetch('https://fsdt-contact-acf4ab9867a7.herokuapp.com/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro na requisição.');
+          }
+          return response.json();
+        })
+        .then(data => {
+          alert('Dados enviados com sucesso!');
+        })
+        .catch(error => {
+          alert('Erro ao enviar os dados. Verifique sua conexão e tente novamente.');
+        });
+    }
+  </script>
+</body>
+
+</html>
