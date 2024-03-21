@@ -29,7 +29,7 @@
       <input type="text" id="name5" name="name" required>
       <label for="name">História do Grupo:</label>
       <textarea id="messageInput" placeholder="História do grupo"></textarea>
-      <button type="submit">Enviar</button>
+      <button type="button" onclick="enviaRm()">Enviar</button>
     </form>
   </div>
 
@@ -37,6 +37,7 @@
 
   <script>
     function enviaRm() {
+
       const name1 = document.getElementById('name1').value.trim();
       const name2 = document.getElementById('name2').value.trim();
       const name3 = document.getElementById('name3').value.trim();
@@ -51,6 +52,8 @@
         names: namesArray,
         message: messageInput
       };// Realizando a requisição POST usando a Fetch API
+
+      console.log(requestData);
       fetch('https://fsdt-contact-acf4ab9867a7.herokuapp.com/contact', {
         method: 'POST',
         headers: {
@@ -65,10 +68,10 @@
           return response.json();
         })
         .then(data => {
+          console.log(response);
           alert('Dados enviados com sucesso!');
         })
         .catch(error => {
-          alert('Erro ao enviar os dados. Verifique sua conexão e tente novamente.');
         });
     }
   </script>
